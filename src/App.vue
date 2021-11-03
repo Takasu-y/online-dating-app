@@ -37,9 +37,8 @@
 
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  }),
+  created: function(){
+    this.$store.dispatch('fetchUsers');
+},
 };
 </script>
