@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-card
+    elevation="16"
+    height="80vh"
+    width="75vw"
+    class="d-flex mx-auto my-auto rounded"
+    dark
+
+    >
+      <v-card
+        class="pt-1 text-center rounded"
+        color="black lighten-3"
+        min-width="60"
+      >
+        <v-icon small color="red">mdi-circle</v-icon>
+        <v-icon small color="orange">mdi-circle</v-icon>
+        <v-icon small color="green accent-2">mdi-circle</v-icon>
+
+
+        <router-link :to="'/'"><v-icon class="d-block pt-6" color="grey" large>mdi-account</v-icon></router-link>
+        <router-link :to="'/message-list'"><v-icon class="d-block py-6" color="grey" large>mdi-chat-processing-outline</v-icon></router-link>
+      </v-card>
+
+      <v-main>
+        <v-card
+          max-width="70vw"
+        >
+          <router-view/>
+        </v-card>
+      </v-main>
+    </v-card>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
