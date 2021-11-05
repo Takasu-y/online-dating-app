@@ -3,11 +3,12 @@
         <h1>This is an chat page</h1>
         <p>{{ $route.params.id }}</p>
         <div
-            v-for="message in getMessageById($route.params.id).chatLog"
+            v-for="message in getMessageById($route.params.id)"
             :key="message.id"
         >
             <v-card>ID: {{ message.id }} / {{ message.me }} / {{ message.text }}</v-card>
         </div>
+        <p>Last message is "{{ getLastMessageById($route.params.id) }}"</p>
     </div>
 </template>
 
@@ -19,6 +20,7 @@ export default {
         // getUser(){},
         ...mapGetters([
             'getMessageById',
+            'getChatedUserId',
         ])
     }
 }

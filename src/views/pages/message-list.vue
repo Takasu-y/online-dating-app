@@ -10,7 +10,7 @@
                     <template v-slot:default>
                         <tbody class="text-center">
                             <tr
-                                v-for="user in listupUser"
+                                v-for="user in getChatedList"
                                 :key="user.name"
                                 class="py-10"
                                 height="72px"
@@ -26,8 +26,8 @@
                                     </v-avatar>
                                 </td>
                                 <td width="8%">{{ user.name }}</td>
-                                <td class="text-start" width="68%">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus facilis aliquid maxime rem, culpa provident corporis dolor eos</td>
-                                <td width="16%">2021.10.27<br>20:41:30</td>
+                                <td class="text-start" width="68%">{{ getLastMessageById(user.id).text }}</td>
+                                <td width="16%">{{ getLastMessageById(user.id).timeStamp }}</td>
                             </tr>
                         </tbody>
                     </template>
@@ -38,11 +38,30 @@
 </template>
 
 <script>
+
+import {mapGetters} from 'vuex'
+
 export default {
     computed: {
+        ...mapGetters([
+            'getUserById',
+            'getChatedUserId',
+            'getLastMessageById',
+        ]),
         listupUser(){
             return this.$store.state.users.users;
+        },
+        getChatedList(){
+            let users = [];
+            let idList = this.getChatedUserId;
+
+            for(let id of idList){
+                let userObj = this.getUserById(id);
+                users.push(userObj);
+            }
+            return users;
         }
+
     },
     methods: {
         transitionToChatPage(userId){

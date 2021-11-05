@@ -93,9 +93,13 @@ export default {
     },
     getters: {
         getMessageById: state => id => {
-            return state.messages.find(user => user.id === id);
+            return state.messages.find(user => user.id === id).chatLog;
         },
-        getUserName: state => state.users.id,
-        // getLastMessage: state =>
+        getLastMessageById: (state,getters) => id => {
+            return getters.getMessageById(id).slice(-1)[0];
+        },
+        getChatedUserId: state => {
+            return state.messages.map(message => message.id);
+        }
     },
 };
