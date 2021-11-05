@@ -37,10 +37,6 @@
                             <td>Age</td>
                             <td>{{ user.age }}</td>
                         </tr>
-                        <!-- <tr>
-                            <td>Email</td>
-                            <td>{{ user.email }}</td>
-                        </tr> -->
                         <tr>
                             <td>Country</td>
                             <td>{{ user.country }}</td>

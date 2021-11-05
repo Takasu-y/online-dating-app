@@ -28,7 +28,7 @@
                     >
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn
-                                color="red lighten-2"
+                                color="primary lighten-2"
                                 dark
                                 v-bind="attrs"
                                 v-on="on"
@@ -43,7 +43,7 @@
                                 v-bind="attrs"
                                 v-on="on"
                             >
-                            <router-link :to="'/user/' + user.id + '/chat'" class="text-decoration-none"><v-icon color="grey darken-3">mdi-chat-processing-outline</v-icon></router-link>
+                                <router-link :to="'/user/' + user.id + '/chat'" class="text-decoration-none"><v-icon color="grey darken-3">mdi-chat-processing-outline</v-icon></router-link>
                             </v-btn>
                         </template>
 
@@ -60,6 +60,7 @@
 
 <script>
 import userDetail from './user-detail.vue'
+
 export default ({
     components: {
         userDetail
