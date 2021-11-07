@@ -49,10 +49,25 @@ export default {
         inputMessage(event, userId){
             if(this.inputText.length > 0){
                 if(event.keyCode === 13){
+                    console.log(new Date().getFullYear());
+                    let today = new Date();
+                    let years = today.getFullYear();
+                    let month = today.getMonth();
+                    let days = today.getDay();
+                    let hours = today.getHours();
+                    let minutes = today.getMinutes();
+                    let seconds = today.getSeconds();
+                    let timeStamp = years
+                                    + "-" + month
+                                    + "-" + days
+                                    + " " + hours
+                                    + ":" + minutes
+                                    + ":" + seconds;
+
                     let msgObj = {
                         me: true,
                         text: this.inputText,
-                        timeStamp: "2040-12-01 17:35:22"
+                        timeStamp: timeStamp
                     }
 
                     this.$store.commit(

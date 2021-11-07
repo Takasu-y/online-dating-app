@@ -4,11 +4,11 @@
             <v-app-bar><h1>Message List</h1></v-app-bar>
             <v-list
                 max-height="70vh"
-                class="overflow-y-auto px-10"
+                class="overflow-y-auto px-6"
             >
                 <v-simple-table>
                     <template v-slot:default>
-                        <tbody class="text-center">
+                        <tbody class="text-center w-100">
                             <tr
                                 v-for="user in getChatedList"
                                 :key="user.name"
@@ -58,6 +58,13 @@ export default {
                 let userObj = this.getUserById(id);
                 users.push(userObj);
             }
+
+            //usersを日付順に並べ替える
+            // users.sort( (a, b) => {
+            //     return new Date(b.time) - new Date()
+            // })
+
+
             return users;
         }
 

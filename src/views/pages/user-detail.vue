@@ -19,6 +19,7 @@
                     <router-link :to="'/user/' + user.id + '/chat'" class="text-decoration-none mx-auto">
                         <v-btn
                         color="grey"
+                        @click="$emit('click', user.id)"
                         >
                             message
                         </v-btn>

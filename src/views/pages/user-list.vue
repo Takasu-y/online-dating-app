@@ -55,7 +55,8 @@
                         <!-- modal -->
                         <v-card>
                             <userDetail
-                            :user="user"
+                                :user="user"
+                                @click="createChatLog"
                             ></userDetail>
                         </v-card>
                     </v-dialog>
@@ -79,17 +80,11 @@ export default ({
     },
     methods: {
         createChatLog(userId){
-            console.log(userId)
-
             let idExist = this.$store.state.messages.messages.some(message => message.id === userId);
             if(!idExist){
-                console.log('IDが存在しません')
                 //user idが存在しなければ、そのidのchatLogのベースをpush
                 this.$store.commit('setChatLog', userId);
-            }else{
-                console.log('IDは存在します')
             }
-
         }
     }
 })
