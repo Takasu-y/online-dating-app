@@ -1,7 +1,7 @@
 <template>
     <div class="messageList">
         <v-card class="userList">
-            <h1>This is an message list page</h1>
+            <v-app-bar><h1>Message List</h1></v-app-bar>
             <v-list
                 max-height="70vh"
                 class="overflow-y-auto px-10"
@@ -26,8 +26,8 @@
                                     </v-avatar>
                                 </td>
                                 <td width="8%">{{ user.name }}</td>
-                                <td class="text-start" width="68%">{{ getLastMessageById(user.id).text }}</td>
                                 <td width="16%">{{ getLastMessageById(user.id).timeStamp }}</td>
+                                <td class="text-start" width="68%">{{ getLastMessageById(user.id).text }}</td>
                             </tr>
                         </tbody>
                     </template>

@@ -19,7 +19,6 @@
                     <router-link :to="'/user/' + user.id + '/chat'" class="text-decoration-none mx-auto">
                         <v-btn
                         color="grey"
-                        @click="dialog = false"
                         >
                             message
                         </v-btn>

@@ -23,7 +23,7 @@
                 <v-card-text><v-icon small>mdi-map-marker</v-icon> {{ user.country }} / Age: {{ user.age }}</v-card-text>
                 <div class="text-center">
                     <v-dialog
-                        v-model="dialog"
+
                         width="360"
                     >
                         <template v-slot:activator="{ on, attrs }">
@@ -42,14 +42,22 @@
                                 dark
                                 v-bind="attrs"
                                 v-on="on"
+                                @click="addUserToMessageList"
                             >
-                                <router-link :to="'/user/' + user.id + '/chat'" class="text-decoration-none"><v-icon color="grey darken-3">mdi-chat-processing-outline</v-icon></router-link>
+                                <router-link
+                                    :to="'/user/' + user.id + '/chat'"
+                                    class="text-decoration-none"
+                                    >
+                                    <v-icon color="grey darken-3">mdi-chat-processing-outline</v-icon>
+                                </router-link>
                             </v-btn>
                         </template>
 
                         <!-- modal -->
                         <v-card>
-                            <userDetail :user="user"></userDetail>
+                            <userDetail
+                            :user="user"
+                            ></userDetail>
                         </v-card>
                     </v-dialog>
                 </div>
@@ -68,6 +76,12 @@ export default ({
     computed: {
         listupUser(){
             return this.$store.state.users.users;
+        }
+    },
+    methods: {
+        addUserToMessageList(){
+            console.log('クリックされました');
+            // this.$store.dispatch('createChatLog', userId);
         }
     }
 })
