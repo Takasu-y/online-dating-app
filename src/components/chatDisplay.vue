@@ -4,8 +4,9 @@
         <v-divider class="py-4"></v-divider>
         <v-card
             flat
-            max-height="60vh"
+            max-height="55vh"
             class="overflow-y-auto"
+            v-if="messages"
         >
             <v-col
                 class="py-0"
@@ -52,7 +53,6 @@ export default{
         },
         messages: {
             type: Array,
-            required: true
         }
     },
 }

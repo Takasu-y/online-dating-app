@@ -37,20 +37,19 @@
                             >
                             Profile
                             </v-btn>
-                            <v-btn
-                                color="grey lighten-2"
-                                dark
-                                v-bind="attrs"
-                                v-on="on"
-                                @click="addUserToMessageList"
-                            >
-                                <router-link
-                                    :to="'/user/' + user.id + '/chat'"
-                                    class="text-decoration-none"
-                                    >
+                            <router-link
+                                :to="'/user/' + user.id + '/chat'"
+                                class="text-decoration-none"
+                                >
+                                <v-btn
+                                    color="grey lighten-2"
+                                    dark
+                                    @click="createChatLog(user.id)"
+
+                                >
                                     <v-icon color="grey darken-3">mdi-chat-processing-outline</v-icon>
-                                </router-link>
-                            </v-btn>
+                                </v-btn>
+                            </router-link>
                         </template>
 
                         <!-- modal -->
@@ -79,9 +78,18 @@ export default ({
         }
     },
     methods: {
-        addUserToMessageList(){
-            console.log('クリックされました');
-            // this.$store.dispatch('createChatLog', userId);
+        createChatLog(userId){
+            console.log(userId)
+
+            let idExist = this.$store.state.messages.messages.some(message => message.id === userId);
+            if(!idExist){
+                console.log('IDが存在しません')
+                //user idが存在しなければ、そのidのchatLogのベースをpush
+                this.$store.commit('setChatLog', userId);
+            }else{
+                console.log('IDは存在します')
+            }
+
         }
     }
 })

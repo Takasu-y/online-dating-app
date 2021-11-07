@@ -64,27 +64,21 @@ export default {
         ],
     },
     mutations: {
+        setChatLog: (state, userId) => {
+            state.messages.push({
+                id: userId,
+                chatLog: []
+            })
+        },
         setMessages: (state, {userId, msgObj}) => {
-
-            let idExist = state.messages.some(message => message.id === userId);
-            console.log("chat logが存在するか？" + idExist);
-            if(!idExist){
-                //user idが存在しなければ、そのidのchatLogのベースをpush
-                state.messages.push({
-                    id: userId,
-                    chatLog: []
-                })
-            }
-
             //chat内容をpush
             state.messages.find(msg => msg.id === userId).chatLog.push(msgObj);
-            console.log(state.messages.find(msg => msg.id === userId).chatLog);
-
         }
     },
     getters: {
         getMessageById: state => id => {
-            return state.messages.find(msg => msg.id === id).chatLog;
+            let chatLog = state.messages.find(msg => msg.id === id).chatLog;
+            return chatLog;
         },
         getLastMessageById: (state,getters) => id => {
             return getters.getMessageById(id).slice(-1)[0];

@@ -26,8 +26,10 @@
                                     </v-avatar>
                                 </td>
                                 <td width="8%">{{ user.name }}</td>
-                                <td width="16%">{{ getLastMessageById(user.id).timeStamp }}</td>
-                                <td class="text-start" width="68%">{{ getLastMessageById(user.id).text }}</td>
+                                <td width="16%" v-if="getLastMessageById(user.id)">{{ getLastMessageById(user.id).timeStamp }}</td>
+                                <td width="16%" v-else></td>
+                                <td class="text-start" width="68%" v-if="getLastMessageById(user.id)">{{ getLastMessageById(user.id).text }}</td>
+                                <td width="68%" v-else></td>
                             </tr>
                         </tbody>
                     </template>
@@ -48,9 +50,6 @@ export default {
             'getChatedUserId',
             'getLastMessageById',
         ]),
-        listupUser(){
-            return this.$store.state.users.users;
-        },
         getChatedList(){
             let users = [];
             let idList = this.getChatedUserId;
