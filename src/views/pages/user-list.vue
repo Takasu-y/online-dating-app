@@ -2,16 +2,17 @@
     <v-card class="userList">
         <v-app-bar><h1>User List</h1></v-app-bar>
         <v-list
-            class="overflow-y-auto pa-6 d-flex flex-wrap"
+            class="overflow-y-auto py-6 d-flex flex-wrap"
             max-height="70vh"
+            width="1020px"
         >
             <v-card
                     v-for="user in listupUser"
                     :key="user.name"
                     height="320"
-                    width="240"
+                    width="220"
                     elevatrion="16"
-                    class="px-2 py-6 ml-4 mb-4 text-center"
+                    class="py-6 ml-4 mb-4 text-center"
             >
                 <v-avatar size="120">
                     <img

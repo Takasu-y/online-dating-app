@@ -3,7 +3,8 @@
     <v-card
     elevation="16"
     height="80vh"
-    width="75vw"
+    width="1080px"
+
     class="d-flex mx-auto my-auto rounded"
     dark
 
@@ -24,7 +25,7 @@
 
       <v-main>
         <v-card
-          max-width="70vw"
+          width="100%"
         >
           <router-view/>
         </v-card>
