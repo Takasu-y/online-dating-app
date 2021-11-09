@@ -19,7 +19,7 @@
         <v-icon small color="green accent-2">mdi-circle</v-icon>
 
 
-        <router-link :to="'/'"><v-icon class="d-block pt-6" color="grey" large>mdi-account</v-icon></router-link>
+        <router-link :to="'/user-list'"><v-icon class="d-block pt-6" color="grey" large>mdi-account</v-icon></router-link>
         <router-link :to="'/message-list'"><v-icon class="d-block py-6" color="grey" large>mdi-chat-processing-outline</v-icon></router-link>
       </v-card>
 
@@ -40,6 +40,6 @@ export default {
   name: 'App',
   created: function(){
     this.$store.dispatch('fetchUsers');
-},
+    },
 };
 </script>
