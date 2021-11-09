@@ -49,7 +49,6 @@ export default {
         inputMessage(event, userId){
             if(this.inputText.length > 0){
                 if(event.keyCode === 13){
-                    console.log(new Date().getFullYear());
                     let today = new Date();
                     let years = today.getFullYear();
                     let month = ("0" + today.getMonth()).slice(-2);
@@ -75,6 +74,19 @@ export default {
                         {
                             userId: userId,
                             msgObj: msgObj
+                        }
+                    )
+                    let yourMsgObj = {
+                        me: false,
+                        text: "Thanks for your message !!",
+                        timeStamp: timeStamp
+                    }
+
+                    this.$store.commit(
+                        'setMessages',
+                        {
+                            userId: userId,
+                            msgObj: yourMsgObj
                         }
                     )
 

@@ -1,11 +1,10 @@
 <template>
     <div class="messageList">
-        <v-card class="userList">
+        <v-card class="userList border" elevation="0">
             <v-app-bar><h1>Message List</h1></v-app-bar>
             <v-list
                 max-height="70vh"
-                max-width=""
-                min-width=""
+                height="70vh"
                 class="overflow-y-auto px-6"
             >
                 <v-simple-table>
@@ -28,10 +27,8 @@
                                     </v-avatar>
                                 </td>
                                 <td width="8%">{{ user.name }}</td>
-                                <td width="16%" v-if="user.timeStamp !== ''">{{ user.timeStamp }}</td>
-                                <td width="16%" v-else></td>
-                                <td class="text-start" width="68%" v-if="user.text !== ''">{{ user.text }}</td>
-                                <td width="68%" v-else></td>
+                                <td width="16%">{{ user.timeStamp }}</td>
+                                <td class="text-start" width="68%">{{ user.text }}</td>
                             </tr>
                         </tbody>
                     </template>
@@ -59,13 +56,18 @@ export default {
             for(let id of idList){
                 let userObj = this.getUserById(id);
                 let lastMsg = this.getLastMessageById(id);
-                users.push({
-                    id: id,
-                    name: userObj.name,
-                    picture: userObj.picture,
-                    timeStamp: lastMsg.timeStamp,
-                    text: lastMsg.text
-                });
+
+                console.log(lastMsg);
+
+                if(lastMsg !== undefined){
+                    users.push({
+                        id: id,
+                        name: userObj.name,
+                        picture: userObj.picture,
+                        timeStamp: lastMsg.timeStamp,
+                        text: lastMsg.text
+                    });
+                }
             }
 
             //usersを日付順に並べ替える
