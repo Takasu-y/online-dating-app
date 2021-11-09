@@ -76,19 +76,9 @@ export default {
                             msgObj: msgObj
                         }
                     )
-                    let yourMsgObj = {
-                        me: false,
-                        text: "Thanks for your message !!",
-                        timeStamp: timeStamp
-                    }
 
-                    this.$store.commit(
-                        'setMessages',
-                        {
-                            userId: userId,
-                            msgObj: yourMsgObj
-                        }
-                    )
+                    //replyをmessageのstoreに追加
+                    this.$store.dispatch('fetchReply', {userId, msgObj});
 
                     //input areaをクリアする
                     this.inputText = "";
