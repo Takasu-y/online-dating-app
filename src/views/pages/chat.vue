@@ -3,7 +3,8 @@
         class="chat d-flex justify-space-between flex-column"
         height="78vh">
         <chat-display
-        class="px-4"
+            ref="chatDisplay"
+            class="px-4"
             :user="getUserById($route.params.id)"
             :messages="getMessageById($route.params.id)"
         ></chat-display>
@@ -82,9 +83,15 @@ export default {
 
                     //input areaをクリアする
                     this.inputText = "";
+
+                    //chatLogを一番下までスクロール
+                    this.scrollToBottom();
                 }
             }
-        }
+        },
+        // scrollToBottom(){
+        //     // let target = this.$refs.chatDisplay._vnode.children[2];
+        // }
     }
 }
 </script>
