@@ -85,7 +85,6 @@ export default {
                     this.inputText = "";
 
                     //chatLogを一番下までスクロール
-                    this.scrollToBottom();
                 }
             }
         },

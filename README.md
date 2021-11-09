@@ -1,24 +1,23 @@
-# online-dating-app
+# Online-Dating-App
+簡易的なチャットアプリです。
+外部APIからユーザーを取得して、個別にチャットをすることが出来ます。
+また、メッセージを送信すると自動応答で返事がもらえます。
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Demo
+![ad68c0cc4485f8cfc4337b5a225f3971](https://user-images.githubusercontent.com/63044039/140915268-13bc3044-ddbb-4a88-a209-7bc06bea06be.gif)
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# live demo
+https://takasu-y.github.io/online-dating-app/
+
+# Usage
+* Homeの"Search User"ボタン、もしくはサイドバーの人アイコンをクリックして
+ユーザー一覧からチャットしたい相手を選んでください。
+
+* ユーザー一覧の"PROFILE"ボタンを押すとユーザーの詳細が確認できます。
+* ユーザー一覧の各ユーザーのメッセージアイコン、もしくはユーザー詳細の"MESSAGE"ボタンをクリックすると、
+個別のチャット画面へ遷移します。
+* サイドバーのメッセージアイコンをクリックすると、チャットをしたユーザーの一覧が表示されます。
+さらに、最新のチャット履歴が上から順番に表示されます。

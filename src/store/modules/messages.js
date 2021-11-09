@@ -7,7 +7,7 @@ export default {
             // talk apiへPOSTリクエストでmessageとapiキーを投げる
 
             let form = new FormData();
-            form.append('apikey', 'DZZOfVkk6sXS1X3aHyBEJjP9ukRJucuj');
+            form.append('apikey', process.env.VUE_APP_TALK_API_KEY);
             form.append('query', msgObj.text);
 
             fetch('https://api.a3rt.recruit.co.jp/talk/v1/smalltalk', {
