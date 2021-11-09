@@ -52,11 +52,11 @@ export default {
                     console.log(new Date().getFullYear());
                     let today = new Date();
                     let years = today.getFullYear();
-                    let month = today.getMonth();
-                    let days = today.getDay();
-                    let hours = today.getHours();
-                    let minutes = today.getMinutes();
-                    let seconds = today.getSeconds();
+                    let month = ("0" + today.getMonth()).slice(-2);
+                    let days = ("0" + today.getDay()).slice(-2);
+                    let hours = ("0" + today.getHours()).slice(-2);
+                    let minutes = ("0" + today.getMinutes()).slice(-2);
+                    let seconds = ("0" + today.getSeconds()).slice(-2);
                     let timeStamp = years
                                     + "-" + month
                                     + "-" + days
