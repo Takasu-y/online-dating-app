@@ -3,6 +3,7 @@
         <h1>{{ user.name }}</h1>
         <v-divider class="py-4"></v-divider>
         <v-card
+            id="chatLog"
             flat
             max-height="55vh"
             class="overflow-y-auto"
@@ -55,5 +56,15 @@ export default{
             type: Array,
         }
     },
+    updated: function(){
+        this.$nextTick(function(){
+            console.log("再レンダリングが完了しました！");
+            const scrollArea = document.getElementById('chatLog');
+            if(scrollArea){
+                scrollArea.scrollTop = scrollArea.scrollHeight;
+                console.log("一番下までスクロールしました")
+            }
+        })
+    }
 }
 </script>

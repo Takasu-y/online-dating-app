@@ -83,14 +83,9 @@ export default {
 
                     //input areaをクリアする
                     this.inputText = "";
-
-                    //chatLogを一番下までスクロール
                 }
             }
         },
-        // scrollToBottom(){
-        //     // let target = this.$refs.chatDisplay._vnode.children[2];
-        // }
     }
 }
 </script>
