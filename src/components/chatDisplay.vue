@@ -58,11 +58,9 @@ export default{
     },
     updated: function(){
         this.$nextTick(function(){
-            console.log("再レンダリングが完了しました！");
             const scrollArea = document.getElementById('chatLog');
             if(scrollArea){
                 scrollArea.scrollTop = scrollArea.scrollHeight;
-                console.log("一番下までスクロールしました")
             }
         })
     }
